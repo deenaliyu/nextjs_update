@@ -1,5 +1,7 @@
 import './globals.css'
+import styles from './layout.module.css'
 import { Inter } from 'next/font/google'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,7 +17,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+      <div className={styles.header}>
+  <div>
+   <h1 style={{ marginTop: 0 }}>From layout</h1>
+  </div>
+ <div>
+<Link href="/profile/teacher">navigate to teacher profile</Link>
+  </div>
+  <div>
+    <Link href="/profile/student">navigate to student profile</Link>
+  </div>
+</div>
+        <div className="">
+        {children}
+        </div>
+        </body>
     </html>
   )
 }
